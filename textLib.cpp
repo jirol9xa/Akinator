@@ -11,6 +11,8 @@ int constructText(FILE *sourse, Text *text)
     text->text = (Line*) calloc(text->string_amount, sizeof(Line)); 
     CHECK_PTR(text->text);
     CHECK_FUNC(to_strings(text->text_buffer, text->text, text->string_amount));
+
+    return 0;
 }
 /*!
 \brief   Функция ввода текста из файла

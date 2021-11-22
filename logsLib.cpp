@@ -9,7 +9,7 @@ static FILE *logs = nullptr;
 
 int openLogs(const char *logs_file_name)
 {
-    logs = fopen(logs_file_name, "a");
+    logs = fopen(logs_file_name, "w");
 
     if (logs == nullptr)
     {
