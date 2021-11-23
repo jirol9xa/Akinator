@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include "stackLib.h"
 #include "Tree.h"
 #include "logsLib.h"
 #include "Akin.h"
@@ -14,19 +16,18 @@ int main(const int argc, const char ** argv)
         printf("!!! Can't run without input file !!!\n");
     }
     FILE *sourse = fopen(argv[1], "r");
-    PRINT_LINE;
     
     
     treeCtor(&tree);
-    PRINT_LINE;
     readBase(sourse, &tree);
-    PRINT_LINE;
     fclose(sourse);
 
-    treeDump(&tree);
-
     akinator(&tree);
+
     treeDump(&tree);
+    describtion(&tree, "Леха");
+
+    compare(&tree, "Леха", "Егор");
     
     treeDtor(&tree);
     return 0;

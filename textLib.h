@@ -43,7 +43,7 @@
     int  skipSpace(char *string);
     int  finish_text(Text* Onegin);
     void eatInputBuff();
-    int  GetLine(char *string);
+    int GetLine(char *string);
 
 
 #endif

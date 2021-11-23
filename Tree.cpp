@@ -15,7 +15,7 @@ Node *nodeCtor(Node *parent, type_t value, Node *new_node, int is_left)
     new_node->parent      = parent;
     new_node->left_child  = nullptr;
     new_node->right_child = nullptr;
-    new_node->value       = (char *) calloc(32, sizeof(char));
+    new_node->value       = (char *) calloc(128, sizeof(char));
     memcpy(new_node->value, value, strlen(value) + 1);
 
     if (is_left) 
@@ -82,6 +82,8 @@ int treeDtor(Tree *tree)
     assert(tree);
 
     nodeDtor(&(tree->root));
+    free(tree->root.value);
+
     tree->size = -1;
     tree->status |= DESTRUCTED_TREE;
 
@@ -152,4 +154,33 @@ int saveNode(Node *node)
     writeLogs("}");
 
     return 0;
+}
+
+
+Node *searchElem(Node *node, type_t elem)
+{
+    assert(node);
+    assert(elem);
+
+    if (strcmp(node->value, elem))
+    {
+        if (node->left_child)
+        {
+            Node *elem_ptr = nullptr;
+            if (elem_ptr = searchElem(node->left_child, elem))
+            {
+                return elem_ptr;
+            }
+            if (elem_ptr = searchElem(node->right_child, elem))
+            {
+                return elem_ptr;
+            }
+        }
+    }
+    else
+    {
+        return node;
+    }
+
+    return nullptr;
 }

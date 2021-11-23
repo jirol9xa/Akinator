@@ -16,6 +16,13 @@
         int size;
         int status;
     };
+    struct Path
+    {
+        type_t *path;
+        int    size;
+        int    iterator;
+    };
+    
 
 
     enum StatAndErrs
@@ -33,5 +40,6 @@
     int   nodeDtor (Node *node);
     int   saveTree(Tree *tree);
     int saveNode(Node *node);
+    Node *searchElem(Node *node, type_t elem);
 
 #endif
