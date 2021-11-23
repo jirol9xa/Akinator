@@ -5,5 +5,8 @@
     int akinator3000(Node *tree);
     int isRight();
     int readNodeValue(char *text, char *dest);
+    bool isYes();
+    int akinator(Tree *tree);
+    int updateBase(Node *node);
 
 #endif

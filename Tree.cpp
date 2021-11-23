@@ -83,6 +83,7 @@ int treeDtor(Tree *tree)
 
     nodeDtor(&(tree->root));
     tree->size = -1;
+    tree->status |= DESTRUCTED_TREE;
 
     return 0;
 }
@@ -109,3 +110,46 @@ int nodeDtor (Node *node)
     return 0;
 }
 
+
+int saveTree(Tree *tree)
+{
+    assert(tree);
+
+    openLogs("Base");
+    writeLogs("{%s", tree->root.value);
+
+    if (tree->root.left_child)
+    {
+        saveNode(tree->root.left_child);
+    }
+    if (tree->root.right_child)
+    {
+        saveNode(tree->root.right_child);
+    }
+
+    writeLogs("}");
+    closeLogs();
+
+    return 0;
+}
+
+
+int saveNode(Node *node)
+{
+    assert(node);
+
+    writeLogs("{%s", node->value);
+
+    if (node->left_child)
+    {
+        saveNode(node->left_child);
+    }
+    if (node->right_child)
+    {
+        saveNode(node->right_child);
+    }
+
+    writeLogs("}");
+
+    return 0;
+}

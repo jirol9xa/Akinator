@@ -35,12 +35,15 @@
     };
 
 
-    int constructText(FILE *sourse, Text *text);
-    int input(FILE* fp, int *string_amount, char **text_buffer);
-    int to_strings(char *text_buffer, Line *text, int string_amount);
-    int fileLength(long *file_length, FILE *fp);
-    int output(Line *text, int string_amount, FILE *out);
-    int skipSpace(char *string);
-    int finish_text(Text* Onegin);
+    int  constructText(FILE *sourse, Text *text);
+    int  input(FILE* fp, int *string_amount, char **text_buffer);
+    int  to_strings(char *text_buffer, Line *text, int string_amount);
+    int  fileLength(long *file_length, FILE *fp);
+    int  output(Line *text, int string_amount, FILE *out);
+    int  skipSpace(char *string);
+    int  finish_text(Text* Onegin);
+    void eatInputBuff();
+    int  GetLine(char *string);
+
 
 #endif

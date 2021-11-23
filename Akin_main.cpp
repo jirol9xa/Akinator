@@ -14,17 +14,20 @@ int main(const int argc, const char ** argv)
         printf("!!! Can't run without input file !!!\n");
     }
     FILE *sourse = fopen(argv[1], "r");
+    PRINT_LINE;
     
     
     treeCtor(&tree);
-    
+    PRINT_LINE;
     readBase(sourse, &tree);
-    
+    PRINT_LINE;
+    fclose(sourse);
+
     treeDump(&tree);
 
-    akinator3000(&(tree.root));
-
-    fclose(sourse);
+    akinator(&tree);
+    treeDump(&tree);
+    
     treeDtor(&tree);
     return 0;
 }

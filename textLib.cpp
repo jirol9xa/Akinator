@@ -133,3 +133,31 @@ int skipSpace(char *string)
 
     return i;
 }
+
+
+void eatInputBuff()
+{
+    while (getchar() != '\n') continue;
+}
+
+
+int GetLine(char *string)
+{
+    char symbol = getchar();
+
+    int i = 0;
+
+    /*for (int i = 0; symbol = getchar() != '\n'; i++)
+    {
+        string[i] = symbol;
+    }*/
+
+    while (symbol != '\n')
+    {
+        string[i ++] = symbol;
+        symbol = getchar();
+    }
+
+    return i;
+}
+

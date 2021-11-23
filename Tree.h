@@ -20,7 +20,9 @@
 
     enum StatAndErrs
     {
-        EMPTY_TREE = 1 << 0,
+        EMPTY_TREE      = 1 << 0,
+        UPDATED_TREE    = 1 << 1,
+        DESTRUCTED_TREE = 1 << 2,
     };
 
     Node *nodeCtor (Node *parent, type_t value, Node *new_node, int is_left);
@@ -29,5 +31,7 @@
     void  printNode(Node *node);
     int   treeDtor (Tree *tree);
     int   nodeDtor (Node *node);
-    
+    int   saveTree(Tree *tree);
+    int saveNode(Node *node);
+
 #endif
