@@ -22,6 +22,8 @@ int main(const int argc, const char ** argv)
     
     treeDump(&tree);
 
+    akinator3000(&(tree.root));
+
     fclose(sourse);
     treeDtor(&tree);
     return 0;

@@ -32,10 +32,14 @@ int readBase(FILE *sourse, Tree *tree)
 
         if (text[i] == '{')
         {
-            i += skipSpace(text + i + 1);
-            char node_value[100] = {};
-            sscanf(text + i, "%s", node_value);
-            i += strlen(node_value);
+            i += (text[i] != '\0');
+            i += skipSpace(text + i);
+            char *node_value = nullptr;
+            node_value = (char *) calloc(1000, sizeof(char));
+            assert(node_value);
+            char buffer[32] = {};
+
+            i += readNodeValue(text + i, node_value);
 
             if (tree->status & EMPTY_TREE)
             {
@@ -71,6 +75,8 @@ int akinator3000(Node *node)
     if (!node->left_child)
     {
         printf("%s\n", node->value);
+        printf("Is that right?\n");
+        printf("Enter [y]es or [n]o\n");
         if (isRight())
         {
             //тут должна быть дозапись в базу данных
@@ -87,6 +93,9 @@ int akinator3000(Node *node)
         printf("!!! ERROR: Enter [y]es or [n]o !!!\n");
     }
 
+    if (buffer == 'y') akinator3000(node->left_child);
+    else akinator3000(node->right_child);
+
     return 0;
 }
 
@@ -102,10 +111,26 @@ int isRight()
 
     if (buffer == 'y')
     {
-        printf("It was too easy pathetic man\n");
+        printf("It was too easy pathetic human\n");
         return 0;
     }
 
     printf("My stupid creator didn't tell me about it. Are you ready to correct his mistakes?\n");
     return -1;
+}
+
+
+int readNodeValue(char *text, char *dest)
+{
+    assert(text);
+
+    int i = 0;
+
+    for (; text[i] != '{' && text[i] != '}' && text[i] != '\0'; i++)
+    {
+        dest[i] = text[i];
+    }
+
+    i --;
+    return i;
 }

@@ -61,7 +61,7 @@ void printNode(Node *node)
 {
     assert(node);
     
-    writeLogs("    elem_%x[style = \"filled\", fillcolor = \"green\", label =  %s];\n", node, node->value);
+    writeLogs("    elem_%x[style = \"filled\", fillcolor = \"green\", label = \"%s\"];\n", node, node->value);
 
     if (node->left_child)
     {
