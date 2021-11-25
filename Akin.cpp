@@ -2,8 +2,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <string.h>
-#include "stackLib.h"
-#include "Tree.h"
+#include "Tree/Tree.h"
 #include "Akin.h"
 #include "logsLib.h"
 #include "textLib.h"

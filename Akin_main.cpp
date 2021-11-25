@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "stackLib.h"
-#include "Tree.h"
+#include "Tree/Tree.h"
 #include "logsLib.h"
 #include "Akin.h"
 
