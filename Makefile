@@ -1,2 +1,2 @@
 all:
-	g++ Akin.cpp textLib.cpp Akin_main.cpp Tree.cpp logsLib.cpp -o akin -fsanitize=address,leak,undefined -g
+	g++ Akin.cpp textLib.cpp Akin_main.cpp Tree.cpp logsLib.cpp -o -I/include akin -fsanitize=address,leak,undefined -g

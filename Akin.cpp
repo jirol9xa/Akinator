@@ -9,6 +9,52 @@
 #include "textLib.h"
 
 
+/*!
+    \brief  Фукнция прохода по узлам,
+            поиска загаданного слова
+    \param  [Node *]node Указатель на
+            узел
+    \return 0 в случае успеха, -1 в 
+            противном случае
+*/
+static int  akinator3000(Node *node);
+/*!
+    \brief  Функция, которая определяет,
+            является ли выданное слово
+            искомым
+    \param  [Node *]node Указатель на 
+            проверяемый узел
+    \return 0 в случае успеха, -1 в противном
+            случае
+*/
+static int  isRight();
+/*!
+    \brief  Функция считывания значения
+            узла из файла с базой
+    \param  [char *]text Указатель на буфер
+            с текстом
+    \param  [char *]dest Указаьель на место
+            куда надо записать считываемое
+            значение
+    \return 0 в случае успеха, -1 в противном
+            случае
+*/
+static int  readNodeValue(char *text, char *dest);
+/*!
+    \brief  Функция считывания ответа из
+            входного буфера
+    \return 1, если ответ "YES", и 0 в
+            случае ответа "NO"
+*/
+bool getAnswer();
+
+
+
+
+
+int pathCtor(Path *path);
+
+
 int readBase(FILE *sourse, Tree *tree)
 {
     assert(sourse);
@@ -97,7 +143,7 @@ int akinator(Tree *tree)
 }
 
 
-int akinator3000(Node *node)
+static int akinator3000(Node *node)
 {
     assert(node);
 
@@ -127,7 +173,7 @@ int akinator3000(Node *node)
 }
 
 
-int isRight()
+static int isRight()
 {
     bool is_yes = getAnswer();
 
@@ -142,7 +188,7 @@ int isRight()
 }
 
 
-int readNodeValue(char *text, char *dest)
+ static int readNodeValue(char *text, char *dest)
 {
     assert(text);
 

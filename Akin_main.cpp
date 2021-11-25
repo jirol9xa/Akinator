@@ -27,7 +27,7 @@ int main(const int argc, const char ** argv)
     treeDump(&tree);
     describtion(&tree, "Леха");
 
-    compare(&tree, "Леха", "Егор");
+    //compare(&tree, "Леха", "Егор");
     
     treeDtor(&tree);
     return 0;
